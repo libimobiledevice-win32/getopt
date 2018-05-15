@@ -208,15 +208,15 @@ For example, if you are using _stdafx.h_ as the precompiled header, the followin
 History
 -------
 
-02/03/2011 - Initial release
-02/20/2011 - Fixed L4 compiler warnings
-07/05/2011 - Added no_argument, required_argument, optional_argument def
-08/05/2011 - Fixed non-argument runtime bug which caused runtime exception
-08/09/2011 - Added code to export functions for DLL and LIB
-02/15/2012 - Fixed _GETOPT_THROW definition missing in implementation file
-08/03/2012 - Created separate functions for char and wchar_t characters so single DLL can do both Unicode and ANSI
-10/15/2012 - Modified to match latest GNU features
-06/19/2015 - Fixed maximum option limitation caused by option_a (255) and option_w (65535) structure val variable
+- 02/03/2011 - Initial release
+- 02/20/2011 - Fixed L4 compiler warnings
+- 07/05/2011 - Added no_argument, required_argument, optional_argument def
+- 08/05/2011 - Fixed non-argument runtime bug which caused runtime exception
+- 08/09/2011 - Added code to export functions for DLL and LIB
+- 02/15/2012 - Fixed _GETOPT_THROW definition missing in implementation file
+- 08/03/2012 - Created separate functions for char and wchar_t characters so single DLL can do both Unicode and ANSI
+- 10/15/2012 - Modified to match latest GNU features
+- 06/19/2015 - Fixed maximum option limitation caused by option_a (255) and option_w (65535) structure val variable
 
 License
 -------
