@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>getopt_mb_uni_vc10_dll</ProjectName>
     <ProjectGuid>{4BBAEAA1-9AD1-42D2-B6DC-7F73C4B3D238}</ProjectGuid>
     <RootNamespace>GetOptTest</RootNamespace>
     <Keyword>Win32Proj</Keyword>
