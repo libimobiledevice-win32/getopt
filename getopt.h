@@ -57,12 +57,12 @@ EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 	// Change behavior for C\C++
 	#ifdef __cplusplus
-		#define _BEGIN_EXTERN_C extern "C" {
-		#define _END_EXTERN_C }
+		#define _GETOPT_BEGIN_EXTERN_C extern "C" {
+		#define _GETOPT_END_EXTERN_C }
 		#define _GETOPT_THROW throw()
 	#else
-		#define _BEGIN_EXTERN_C
-		#define _END_EXTERN_C
+		#define _GETOPT_BEGIN_EXTERN_C
+		#define _GETOPT_END_EXTERN_C
 		#define _GETOPT_THROW
 	#endif
 
@@ -81,7 +81,7 @@ EXPRESSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 	#include <string.h>
 	#include <wchar.h>
 
-_BEGIN_EXTERN_C
+_GETOPT_BEGIN_EXTERN_C
 
 	extern _GETOPT_API int optind;
 	extern _GETOPT_API int opterr;
@@ -113,10 +113,10 @@ _BEGIN_EXTERN_C
 	extern _GETOPT_API int getopt_long_w(int argc, wchar_t *const *argv, const wchar_t *options, const struct option_w *long_options, int *opt_index) _GETOPT_THROW;
 	extern _GETOPT_API int getopt_long_only_w(int argc, wchar_t *const *argv, const wchar_t *options, const struct option_w *long_options, int *opt_index) _GETOPT_THROW;	
 	
-_END_EXTERN_C
+_GETOPT_END_EXTERN_C
 
-	#undef _BEGIN_EXTERN_C
-	#undef _END_EXTERN_C
+	#undef _GETOPT_BEGIN_EXTERN_C
+	#undef _GETOPT_END_EXTERN_C
 	#undef _GETOPT_THROW
 	#undef _GETOPT_API
 
