@@ -21,14 +21,24 @@ jobs:
           msbuild getopt.sln /p:Configuration=Release /p:Platform=Win32
           msbuild getopt.sln /p:Configuration=Release /p:Platform=x64
 
-  windows-clang:
+  windows-conan:
     runs-on: windows-2025
+    strategy:
+      matrix:
+        profile: [ windows-clang, windows-msvc ]
     steps:
       - uses: actions/checkout@v4
+      - name: Install Conan
+        run: |
+          pip install conan==2.18.1
+          conan --version
       - name: Build getopt
         shell: cmd
         run: |
-          mkdir build
-          cd build
-          cmake .. -G Ninja -DCMAKE_C_COMPILER="C:\Program Files\LLVM\bin\clang.exe" -DBUILD_SHARED_LIBS=YES
-          cmake --build .
+          conan create . --profile:a=${{ matrix.profile }}
+      - name: Upload Conan packages to Cloudsmith
+        run: |
+          conan remote add cloudsmith https://conan.cloudsmith.io/qmfrederik/gnustep/
+          conan remote login -p ${{ secrets.CLOUDSMITH_API_KEY }} cloudsmith ${{ secrets.CLOUDSMITH_USER }}
+          conan upload getopt/* --confirm -r cloudsmith
+        if: ${{ github.ref == 'refs/heads/master' }}

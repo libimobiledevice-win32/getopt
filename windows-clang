@@ -1,0 +1,20 @@
+[buildenv]
+PATH=+(path)C:\Program Files\LLVM\bin
+
+[settings]
+arch=x86_64
+build_type=Release
+os=Windows
+
+compiler=clang
+compiler.cppstd=17
+compiler.runtime=dynamic
+compiler.version=20
+compiler.runtime_version=v144
+
+[options]
+*:shared=True
+
+[conf]
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.build:compiler_executables = {"c": "clang", "cpp": "clang++"}
