@@ -1,0 +1,22 @@
+name: Build packages
+
+on:
+  push: 
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Build getopt
+        shell: cmd
+        run: |
+          msbuild getopt.sln /p:Configuration=Debug /p:Platform=Win32
+          msbuild getopt.sln /p:Configuration=Debug /p:Platform=x64
+          msbuild getopt.sln /p:Configuration=Release /p:Platform=Win32
+          msbuild getopt.sln /p:Configuration=Release /p:Platform=x64
